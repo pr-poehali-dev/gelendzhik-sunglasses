@@ -8,45 +8,45 @@ import Icon from '@/components/ui/icon';
 const products = [
   {
     id: 1,
-    name: 'Classic Aviator',
-    price: 3500,
+    name: 'Солнечный бриз',
+    price: 2990,
     image: 'https://cdn.poehali.dev/projects/77303f0b-c405-4f0d-bbf8-68675d5d8b01/files/81650a7d-de9c-4a5c-bd47-ff3f3acf91a2.jpg',
-    description: 'Классические авиаторы для любого случая'
+    description: 'Лёгкие очки для прогулок по набережной'
   },
   {
     id: 2,
-    name: 'Round Vintage',
-    price: 4200,
+    name: 'Золотой закат',
+    price: 3490,
     image: 'https://cdn.poehali.dev/projects/77303f0b-c405-4f0d-bbf8-68675d5d8b01/files/4f3fac3c-4661-4d8d-a696-6b873f5421c0.jpg',
-    description: 'Винтажные круглые очки в стиле ретро'
+    description: 'Стильные очки с янтарными линзами'
   },
   {
     id: 3,
-    name: 'Black Wayfarer',
-    price: 3900,
+    name: 'Морской бриз',
+    price: 3290,
     image: 'https://cdn.poehali.dev/projects/77303f0b-c405-4f0d-bbf8-68675d5d8b01/files/16d504f6-935d-4085-bfcb-70ddacb39d0b.jpg',
-    description: 'Стильные вайфареры для городской жизни'
+    description: 'Классика для пляжного отдыха'
   },
   {
     id: 4,
-    name: 'Sport Shield',
-    price: 5200,
+    name: 'Яркий день',
+    price: 4290,
     image: 'https://cdn.poehali.dev/projects/77303f0b-c405-4f0d-bbf8-68675d5d8b01/files/81650a7d-de9c-4a5c-bd47-ff3f3acf91a2.jpg',
-    description: 'Спортивные очки с максимальной защитой'
+    description: 'Максимальная защита от солнца'
   },
   {
     id: 5,
-    name: 'Cat Eye Glam',
-    price: 4800,
+    name: 'Летний вечер',
+    price: 3890,
     image: 'https://cdn.poehali.dev/projects/77303f0b-c405-4f0d-bbf8-68675d5d8b01/files/4f3fac3c-4661-4d8d-a696-6b873f5421c0.jpg',
-    description: 'Элегантные очки в форме кошачьего глаза'
+    description: 'Элегантные очки для прогулок'
   },
   {
     id: 6,
-    name: 'Modern Square',
-    price: 4500,
+    name: 'Южное солнце',
+    price: 3690,
     image: 'https://cdn.poehali.dev/projects/77303f0b-c405-4f0d-bbf8-68675d5d8b01/files/16d504f6-935d-4085-bfcb-70ddacb39d0b.jpg',
-    description: 'Современные квадратные очки премиум-класса'
+    description: 'Премиум качество и комфорт'
   }
 ];
 
@@ -60,120 +60,146 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
-      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-border">
+    <div className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
+      <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-16">
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              CRYSTALL
-            </h1>
-            <nav className="hidden md:flex gap-6">
-              {['home', 'catalog', 'delivery', 'contacts'].map((section) => (
+          <div className="flex items-center justify-between h-20">
+            <div className="flex items-center gap-3">
+              <Icon name="Sun" size={32} className="text-primary" />
+              <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
+                Посмотри на солнце
+              </h1>
+            </div>
+            <nav className="hidden md:flex gap-8">
+              {['home', 'catalog', 'about', 'contacts'].map((section) => (
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
-                  className={`text-sm font-medium transition-colors hover:text-primary ${
-                    activeSection === section ? 'text-primary' : 'text-muted-foreground'
+                  className={`text-sm font-semibold transition-colors hover:text-primary ${
+                    activeSection === section ? 'text-primary' : 'text-gray-600'
                   }`}
                 >
                   {section === 'home' && 'Главная'}
                   {section === 'catalog' && 'Каталог'}
-                  {section === 'delivery' && 'Доставка'}
+                  {section === 'about' && 'О нас'}
                   {section === 'contacts' && 'Контакты'}
                 </button>
               ))}
             </nav>
-            <Button size="sm" className="bg-gradient-to-r from-primary to-secondary hover:opacity-90">
-              <Icon name="ShoppingCart" size={16} className="mr-2" />
+            <Button size="sm" className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 shadow-lg">
+              <Icon name="ShoppingBag" size={18} className="mr-2" />
               Корзина
             </Button>
           </div>
         </div>
       </header>
 
-      <section id="home" className="py-20 px-4">
+      <section id="home" className="relative py-24 px-4 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-amber-100/50 to-secondary/10 -z-10"></div>
         <div className="container mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6 animate-fade-in">
-              <h2 className="text-5xl md:text-6xl font-bold leading-tight">
-                Солнцезащитные очки
-                <span className="block bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mt-2">
-                  в Геленджике
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div className="space-y-8 animate-fade-in">
+              <div className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-md">
+                <Icon name="MapPin" size={18} className="text-secondary" />
+                <span className="text-sm font-semibold text-gray-700">Геленджик</span>
+              </div>
+              <h2 className="text-5xl md:text-7xl font-extrabold leading-tight">
+                Посмотри на солнце
+                <span className="block text-4xl md:text-5xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mt-4">
+                  без забот! ☀️
                 </span>
               </h2>
-              <p className="text-lg text-muted-foreground">
-                Премиальная коллекция солнцезащитных очков от ведущих брендов. Защита, стиль и комфорт для ваших глаз.
+              <p className="text-xl text-gray-600 leading-relaxed">
+                Стильные солнцезащитные очки для яркого лета в Геленджике. Защита UV400, современный дизайн и доступные цены.
               </p>
-              <div className="flex gap-4">
+              <div className="flex flex-wrap gap-4">
                 <Button 
                   size="lg" 
-                  className="bg-gradient-to-r from-primary to-secondary hover:opacity-90"
+                  className="bg-gradient-to-r from-primary to-secondary hover:scale-105 transition-transform shadow-xl text-lg px-8"
                   onClick={() => scrollToSection('catalog')}
                 >
-                  Смотреть каталог
-                  <Icon name="ArrowRight" size={20} className="ml-2" />
+                  Выбрать очки
+                  <Icon name="ArrowRight" size={22} className="ml-2" />
                 </Button>
-                <Button size="lg" variant="outline">
-                  Связаться
+                <Button size="lg" variant="outline" className="border-2 border-primary text-primary hover:bg-primary/10 text-lg px-8">
+                  Позвонить нам
                 </Button>
               </div>
-              <div className="flex gap-8 pt-6">
+              <div className="grid grid-cols-3 gap-6 pt-8">
                 <div className="text-center">
-                  <Icon name="Glasses" size={32} className="mx-auto mb-2 text-primary" />
-                  <p className="text-sm font-medium">Широкий выбор</p>
+                  <div className="bg-white p-4 rounded-xl shadow-md mb-3 inline-flex">
+                    <Icon name="Shield" size={36} className="text-primary" />
+                  </div>
+                  <p className="text-sm font-semibold">Защита UV400</p>
                 </div>
                 <div className="text-center">
-                  <Icon name="Truck" size={32} className="mx-auto mb-2 text-primary" />
-                  <p className="text-sm font-medium">Быстрая доставка</p>
+                  <div className="bg-white p-4 rounded-xl shadow-md mb-3 inline-flex">
+                    <Icon name="Sparkles" size={36} className="text-primary" />
+                  </div>
+                  <p className="text-sm font-semibold">Стильный дизайн</p>
                 </div>
                 <div className="text-center">
-                  <Icon name="MapPin" size={32} className="mx-auto mb-2 text-primary" />
-                  <p className="text-sm font-medium">Геленджик</p>
+                  <div className="bg-white p-4 rounded-xl shadow-md mb-3 inline-flex">
+                    <Icon name="BadgePercent" size={36} className="text-primary" />
+                  </div>
+                  <p className="text-sm font-semibold">Отличные цены</p>
                 </div>
               </div>
             </div>
             <div className="relative animate-scale-in">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 blur-3xl -z-10"></div>
-              <img 
-                src="https://cdn.poehali.dev/projects/77303f0b-c405-4f0d-bbf8-68675d5d8b01/files/81650a7d-de9c-4a5c-bd47-ff3f3acf91a2.jpg"
-                alt="Hero sunglasses"
-                className="w-full rounded-2xl shadow-2xl"
-              />
+              <div className="absolute -inset-4 bg-gradient-to-r from-primary via-amber-400 to-secondary blur-3xl opacity-30 -z-10 animate-pulse"></div>
+              <div className="bg-white p-6 rounded-3xl shadow-2xl">
+                <img 
+                  src="https://cdn.poehali.dev/projects/77303f0b-c405-4f0d-bbf8-68675d5d8b01/files/81650a7d-de9c-4a5c-bd47-ff3f3acf91a2.jpg"
+                  alt="Солнцезащитные очки"
+                  className="w-full rounded-2xl"
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="catalog" className="py-20 px-4 bg-white">
+      <section id="catalog" className="py-24 px-4 bg-white">
         <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Наш каталог</h2>
-            <p className="text-muted-foreground">Актуальные модели 2024 года</p>
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-amber-100 px-4 py-2 rounded-full mb-4">
+              <Icon name="Sparkles" size={18} className="text-secondary" />
+              <span className="text-sm font-semibold text-gray-700">Лето 2024</span>
+            </div>
+            <h2 className="text-5xl font-bold mb-4">Наша коллекция</h2>
+            <p className="text-xl text-gray-600">Выбери свой стиль для летнего отдыха</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product, index) => (
               <Card 
                 key={product.id} 
-                className="group overflow-hidden border-2 hover:border-primary transition-all duration-300 hover:shadow-xl animate-fade-in"
+                className="group overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 animate-fade-in bg-gradient-to-br from-white to-amber-50/30"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="relative overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
+                <div className="relative overflow-hidden bg-gradient-to-br from-amber-100 to-orange-100">
                   <img 
                     src={product.image} 
                     alt={product.name}
-                    className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+                    className="w-full h-72 object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
+                    <span className="text-xs font-bold text-secondary">Хит продаж</span>
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </div>
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-2">{product.name}</h3>
-                  <p className="text-muted-foreground text-sm mb-4">{product.description}</p>
+                  <h3 className="text-2xl font-bold mb-2">{product.name}</h3>
+                  <p className="text-gray-600 mb-6">{product.description}</p>
                   <div className="flex items-center justify-between">
-                    <span className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                      {product.price} ₽
-                    </span>
-                    <Button className="bg-gradient-to-r from-primary to-secondary hover:opacity-90">
-                      В корзину
+                    <div>
+                      <span className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                        {product.price} ₽
+                      </span>
+                    </div>
+                    <Button className="bg-gradient-to-r from-primary to-secondary hover:scale-105 transition-transform shadow-lg">
+                      <Icon name="ShoppingCart" size={18} className="mr-2" />
+                      Купить
                     </Button>
                   </div>
                 </CardContent>
@@ -183,121 +209,143 @@ export default function Index() {
         </div>
       </section>
 
-      <section id="delivery" className="py-20 px-4 bg-gradient-to-r from-primary/5 to-secondary/5">
-        <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Доставка</h2>
-            <p className="text-muted-foreground">Удобные способы получения заказа</p>
+      <section id="about" className="py-24 px-4 bg-gradient-to-br from-amber-50 via-white to-orange-50">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold mb-4">О магазине</h2>
+            <p className="text-xl text-gray-600">Почему нас выбирают в Геленджике</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            <Card className="text-center p-6 hover:shadow-lg transition-shadow">
-              <Icon name="MapPin" size={48} className="mx-auto mb-4 text-primary" />
-              <h3 className="font-bold mb-2">Самовывоз</h3>
-              <p className="text-sm text-muted-foreground">Забрать в нашем магазине в Геленджике</p>
-              <p className="text-primary font-bold mt-2">Бесплатно</p>
-            </Card>
-            <Card className="text-center p-6 hover:shadow-lg transition-shadow">
-              <Icon name="Truck" size={48} className="mx-auto mb-4 text-primary" />
-              <h3 className="font-bold mb-2">Курьер</h3>
-              <p className="text-sm text-muted-foreground">Доставка по Геленджику в день заказа</p>
-              <p className="text-primary font-bold mt-2">200 ₽</p>
-            </Card>
-            <Card className="text-center p-6 hover:shadow-lg transition-shadow">
-              <Icon name="Package" size={48} className="mx-auto mb-4 text-primary" />
-              <h3 className="font-bold mb-2">СДЭК</h3>
-              <p className="text-sm text-muted-foreground">Доставка в любой город России</p>
-              <p className="text-primary font-bold mt-2">От 300 ₽</p>
-            </Card>
-          </div>
-          <Card className="mt-8 p-6 bg-white">
-            <h3 className="font-bold text-lg mb-4">Условия доставки</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li className="flex items-start gap-2">
-                <Icon name="Check" size={20} className="text-primary flex-shrink-0 mt-0.5" />
-                <span>Бесплатная доставка при заказе от 5000 ₽</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <Icon name="Check" size={20} className="text-primary flex-shrink-0 mt-0.5" />
-                <span>Доставка по Геленджику осуществляется в течение 1-2 часов</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <Icon name="Check" size={20} className="text-primary flex-shrink-0 mt-0.5" />
-                <span>Отправка в другие города в течение 1 рабочего дня</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <Icon name="Check" size={20} className="text-primary flex-shrink-0 mt-0.5" />
-                <span>Возможна примерка перед оплатой при самовывозе</span>
-              </li>
-            </ul>
-          </Card>
-        </div>
-      </section>
-
-      <section id="contacts" className="py-20 px-4 bg-white">
-        <div className="container mx-auto max-w-5xl">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Контакты</h2>
-            <p className="text-muted-foreground">Свяжитесь с нами удобным способом</p>
-          </div>
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <Card className="p-6">
+              <Card className="p-6 border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:shadow-xl transition-shadow">
                 <div className="flex items-start gap-4">
-                  <Icon name="MapPin" size={24} className="text-primary flex-shrink-0 mt-1" />
+                  <div className="bg-gradient-to-br from-primary to-secondary p-3 rounded-xl">
+                    <Icon name="Sun" size={28} className="text-white" />
+                  </div>
                   <div>
-                    <h3 className="font-bold mb-1">Адрес</h3>
-                    <p className="text-muted-foreground">г. Геленджик, ул. Революционная, 10</p>
+                    <h3 className="text-xl font-bold mb-2">Защита от солнца</h3>
+                    <p className="text-gray-600">Все модели с защитой UV400 для максимальной безопасности ваших глаз на южном солнце</p>
                   </div>
                 </div>
               </Card>
-              <Card className="p-6">
+              <Card className="p-6 border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:shadow-xl transition-shadow">
                 <div className="flex items-start gap-4">
-                  <Icon name="Phone" size={24} className="text-primary flex-shrink-0 mt-1" />
+                  <div className="bg-gradient-to-br from-primary to-secondary p-3 rounded-xl">
+                    <Icon name="Award" size={28} className="text-white" />
+                  </div>
                   <div>
-                    <h3 className="font-bold mb-1">Телефон</h3>
-                    <p className="text-muted-foreground">+7 (918) 123-45-67</p>
-                    <p className="text-sm text-muted-foreground mt-1">Ежедневно с 9:00 до 21:00</p>
+                    <h3 className="text-xl font-bold mb-2">Качество</h3>
+                    <p className="text-gray-600">Только проверенные бренды и сертифицированная продукция с гарантией</p>
                   </div>
                 </div>
               </Card>
-              <Card className="p-6">
+              <Card className="p-6 border-0 shadow-lg bg-white/80 backdrop-blur-sm hover:shadow-xl transition-shadow">
                 <div className="flex items-start gap-4">
-                  <Icon name="Mail" size={24} className="text-primary flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-bold mb-1">Email</h3>
-                    <p className="text-muted-foreground">info@crystall-gel.ru</p>
+                  <div className="bg-gradient-to-br from-primary to-secondary p-3 rounded-xl">
+                    <Icon name="MapPin" size={28} className="text-white" />
                   </div>
-                </div>
-              </Card>
-              <Card className="p-6">
-                <div className="flex items-start gap-4">
-                  <Icon name="Clock" size={24} className="text-primary flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="font-bold mb-1">Режим работы</h3>
-                    <p className="text-muted-foreground">Пн-Вс: 9:00 - 21:00</p>
-                    <p className="text-sm text-muted-foreground mt-1">Без выходных</p>
+                    <h3 className="text-xl font-bold mb-2">Местный магазин</h3>
+                    <p className="text-gray-600">Работаем в Геленджике круглый год. Быстрая доставка и самовывоз</p>
                   </div>
                 </div>
               </Card>
             </div>
-            <Card className="p-6">
-              <h3 className="font-bold text-lg mb-4">Напишите нам</h3>
-              <form className="space-y-4">
+            <div className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-primary to-secondary blur-3xl opacity-20 -z-10"></div>
+              <img 
+                src="https://cdn.poehali.dev/projects/77303f0b-c405-4f0d-bbf8-68675d5d8b01/files/4f3fac3c-4661-4d8d-a696-6b873f5421c0.jpg"
+                alt="О магазине"
+                className="w-full rounded-3xl shadow-2xl"
+              />
+            </div>
+          </div>
+          <div className="mt-16 bg-gradient-to-r from-primary to-secondary p-8 md:p-12 rounded-3xl text-white shadow-2xl">
+            <div className="grid md:grid-cols-3 gap-8 text-center">
+              <div>
+                <div className="text-5xl font-bold mb-2">500+</div>
+                <p className="text-white/90">Довольных клиентов</p>
+              </div>
+              <div>
+                <div className="text-5xl font-bold mb-2">100+</div>
+                <p className="text-white/90">Моделей в наличии</p>
+              </div>
+              <div>
+                <div className="text-5xl font-bold mb-2">5 лет</div>
+                <p className="text-white/90">На рынке Геленджика</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contacts" className="py-24 px-4 bg-white">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-amber-100 px-4 py-2 rounded-full mb-4">
+              <Icon name="MessageCircle" size={18} className="text-secondary" />
+              <span className="text-sm font-semibold text-gray-700">Свяжитесь с нами</span>
+            </div>
+            <h2 className="text-5xl font-bold mb-4">Контакты</h2>
+            <p className="text-xl text-gray-600">Приезжайте к нам или напишите</p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-12">
+            <div className="space-y-6">
+              <Card className="p-8 border-0 shadow-lg hover:shadow-xl transition-shadow bg-gradient-to-br from-white to-amber-50/30">
+                <div className="flex items-start gap-6">
+                  <div className="bg-gradient-to-br from-primary to-secondary p-4 rounded-2xl">
+                    <Icon name="MapPin" size={32} className="text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold mb-2">Наш адрес</h3>
+                    <p className="text-gray-600 text-lg">г. Геленджик, ул. Луначарского, 156</p>
+                    <p className="text-sm text-gray-500 mt-2">Рядом с набережной</p>
+                  </div>
+                </div>
+              </Card>
+              <Card className="p-8 border-0 shadow-lg hover:shadow-xl transition-shadow bg-gradient-to-br from-white to-amber-50/30">
+                <div className="flex items-start gap-6">
+                  <div className="bg-gradient-to-br from-primary to-secondary p-4 rounded-2xl">
+                    <Icon name="Phone" size={32} className="text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold mb-2">Телефон</h3>
+                    <p className="text-gray-600 text-lg">+7 (918) 555-33-22</p>
+                    <p className="text-sm text-gray-500 mt-2">Ежедневно с 10:00 до 20:00</p>
+                  </div>
+                </div>
+              </Card>
+              <Card className="p-8 border-0 shadow-lg hover:shadow-xl transition-shadow bg-gradient-to-br from-white to-amber-50/30">
+                <div className="flex items-start gap-6">
+                  <div className="bg-gradient-to-br from-primary to-secondary p-4 rounded-2xl">
+                    <Icon name="Mail" size={32} className="text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold mb-2">Email</h3>
+                    <p className="text-gray-600 text-lg">info@posmotrionasunce.ru</p>
+                    <p className="text-sm text-gray-500 mt-2">Ответим в течение часа</p>
+                  </div>
+                </div>
+              </Card>
+            </div>
+            <Card className="p-8 border-0 shadow-xl bg-gradient-to-br from-white to-amber-50/50">
+              <h3 className="text-2xl font-bold mb-6">Напишите нам</h3>
+              <form className="space-y-6">
                 <div>
-                  <Input placeholder="Ваше имя" />
+                  <Input placeholder="Ваше имя" className="h-12 text-lg" />
                 </div>
                 <div>
-                  <Input type="tel" placeholder="Телефон" />
+                  <Input type="tel" placeholder="Телефон" className="h-12 text-lg" />
                 </div>
                 <div>
-                  <Input type="email" placeholder="Email" />
+                  <Input type="email" placeholder="Email" className="h-12 text-lg" />
                 </div>
                 <div>
-                  <Textarea placeholder="Ваше сообщение" rows={4} />
+                  <Textarea placeholder="Ваше сообщение" rows={5} className="text-lg" />
                 </div>
-                <Button className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90">
+                <Button className="w-full h-14 text-lg bg-gradient-to-r from-primary to-secondary hover:scale-105 transition-transform shadow-xl">
                   Отправить сообщение
-                  <Icon name="Send" size={16} className="ml-2" />
+                  <Icon name="Send" size={20} className="ml-2" />
                 </Button>
               </form>
             </Card>
@@ -305,51 +353,55 @@ export default function Index() {
         </div>
       </section>
 
-      <footer className="bg-gradient-to-r from-foreground to-foreground/90 text-white py-12 px-4">
+      <footer className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-16 px-4">
         <div className="container mx-auto">
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div>
-              <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                CRYSTALL
-              </h3>
-              <p className="text-sm text-gray-300">
-                Премиальные солнцезащитные очки в Геленджике
+              <div className="flex items-center gap-2 mb-4">
+                <Icon name="Sun" size={32} className="text-primary" />
+                <h3 className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                  Посмотри на солнце
+                </h3>
+              </div>
+              <p className="text-gray-400">
+                Солнцезащитные очки в Геленджике
               </p>
             </div>
             <div>
-              <h4 className="font-bold mb-3">Меню</h4>
-              <ul className="space-y-2 text-sm text-gray-300">
+              <h4 className="font-bold text-lg mb-4">Навигация</h4>
+              <ul className="space-y-3 text-gray-400">
                 <li><button onClick={() => scrollToSection('home')} className="hover:text-primary transition-colors">Главная</button></li>
                 <li><button onClick={() => scrollToSection('catalog')} className="hover:text-primary transition-colors">Каталог</button></li>
-                <li><button onClick={() => scrollToSection('delivery')} className="hover:text-primary transition-colors">Доставка</button></li>
+                <li><button onClick={() => scrollToSection('about')} className="hover:text-primary transition-colors">О нас</button></li>
                 <li><button onClick={() => scrollToSection('contacts')} className="hover:text-primary transition-colors">Контакты</button></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-bold mb-3">Контакты</h4>
-              <ul className="space-y-2 text-sm text-gray-300">
-                <li>+7 (918) 123-45-67</li>
-                <li>info@crystall-gel.ru</li>
+              <h4 className="font-bold text-lg mb-4">Контакты</h4>
+              <ul className="space-y-3 text-gray-400">
+                <li>+7 (918) 555-33-22</li>
+                <li>info@posmotrionasunce.ru</li>
                 <li>г. Геленджик</li>
+                <li>ул. Луначарского, 156</li>
               </ul>
             </div>
             <div>
-              <h4 className="font-bold mb-3">Соцсети</h4>
+              <h4 className="font-bold text-lg mb-4">Соцсети</h4>
               <div className="flex gap-3">
-                <Button size="icon" variant="outline" className="hover:bg-primary hover:border-primary transition-colors">
-                  <Icon name="Instagram" size={20} />
+                <Button size="icon" variant="outline" className="hover:bg-primary hover:border-primary transition-all hover:scale-110">
+                  <Icon name="Instagram" size={22} />
                 </Button>
-                <Button size="icon" variant="outline" className="hover:bg-primary hover:border-primary transition-colors">
-                  <Icon name="Facebook" size={20} />
+                <Button size="icon" variant="outline" className="hover:bg-primary hover:border-primary transition-all hover:scale-110">
+                  <Icon name="MessageCircle" size={22} />
                 </Button>
-                <Button size="icon" variant="outline" className="hover:bg-primary hover:border-primary transition-colors">
-                  <Icon name="MessageCircle" size={20} />
+                <Button size="icon" variant="outline" className="hover:bg-primary hover:border-primary transition-all hover:scale-110">
+                  <Icon name="Phone" size={22} />
                 </Button>
               </div>
             </div>
           </div>
-          <div className="border-t border-gray-700 mt-8 pt-6 text-center text-sm text-gray-400">
-            © 2024 CRYSTALL. Все права защищены
+          <div className="border-t border-gray-700 pt-8 text-center">
+            <p className="text-gray-400">© 2024 Посмотри на солнце. Геленджик. Все права защищены</p>
           </div>
         </div>
       </footer>
